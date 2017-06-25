@@ -5,8 +5,9 @@ bin/
 bin64/
 vs.proj/Debug
 vs.proj/Release
+vs.proj/ipch
 vs.proj/x64
-vs.proj/NppPluginTemplate.opensdf
-vs.proj/NppPluginTemplate.exp
-vs.proj/NppPluginTemplate.lib
-vs.proj/NppPluginTemplate.vcxproj.user
+vs.proj/Rustplusplus.opensdf
+vs.proj/Rustplusplus.exp
+vs.proj/Rustplusplus.lib
+vs.proj/Rustplusplus.vcxproj.user
