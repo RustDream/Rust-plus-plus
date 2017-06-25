@@ -58,8 +58,9 @@ void commandMenuInit()
     //            ShortcutKey *shortcut,          // optional. Define a shortcut to trigger this command
     //            bool check0nInit                // optional. Make this menu item be checked visually
     //            );
-    setCommand(0, TEXT("Hello Notepad++"), hello, NULL, false);
-    setCommand(1, TEXT("Hello (with dialog)"), helloDlg, NULL, false);
+    setCommand(0, TEXT("New source"), new_source, NULL, false);
+	setCommand(1, TEXT("---"), NULL, NULL, false);
+    setCommand(2, TEXT("About"), about, NULL, false);
 }
 
 //
@@ -93,7 +94,7 @@ bool setCommand(size_t index, TCHAR *cmdName, PFUNCPLUGINCMD pFunc, ShortcutKey 
 //----------------------------------------------//
 //-- STEP 4. DEFINE YOUR ASSOCIATED FUNCTIONS --//
 //----------------------------------------------//
-void hello()
+void new_source()
 {
     // Open a new document
     ::SendMessage(nppData._nppHandle, NPPM_MENUCOMMAND, 0, IDM_FILE_NEW);
@@ -107,10 +108,10 @@ void hello()
 
     // Say hello now :
     // Scintilla control has no Unicode mode, so we use (char *) here
-    ::SendMessage(curScintilla, SCI_SETTEXT, 0, (LPARAM)"Hello, Notepad++!");
+	::SendMessage(curScintilla, SCI_SETTEXT, 0, (LPARAM)"fn main() {\n    println!(\"Hello, Rust!\");\n}");
 }
 
-void helloDlg()
+void about()
 {
-    ::MessageBox(NULL, TEXT("Hello, Notepad++!"), TEXT("Notepad++ Plugin Template"), MB_OK);
+    ::MessageBox(NULL, TEXT("Version: 0.0.1"), TEXT("About Rust++"), MB_OK);
 }
